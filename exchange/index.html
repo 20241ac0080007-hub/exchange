@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoExchange - Conversor de Moedas em Tempo Real</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">💱</span>
+                <h1>CryptoExchange</h1>
+            </div>
+            <p class="subtitle">Conversão de moedas em tempo real</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="converter-card">
+                <!-- Input Section -->
+                <div class="input-section">
+                    <label for="amount" class="label">Valor a Converter</label>
+                    <input 
+                        type="number" 
+                        id="amount" 
+                        class="input-amount" 
+                        placeholder="0.00" 
+                        min="0" 
+                        step="0.01"
+                    >
+                </div>
+
+                <!-- Currency Selection Section -->
+                <div class="currency-section">
+                    <!-- From Currency -->
+                    <div class="currency-group">
+                        <label for="from-currency" class="label">De</label>
+                        <select id="from-currency" class="currency-select">
+                            <option value="BRL">BRL - Real Brasileiro</option>
+                            <option value="USD" selected>USD - Dólar Americano</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="GBP">GBP - Libra Esterlina</option>
+                            <option value="JPY">JPY - Iene Japonês</option>
+                        </select>
+                    </div>
+
+                    <!-- Swap Button -->
+                    <button id="swap-btn" class="swap-btn" title="Inverter moedas">
+                        <span class="swap-icon">⇄</span>
+                    </button>
+
+                    <!-- To Currency -->
+                    <div class="currency-group">
+                        <label for="to-currency" class="label">Para</label>
+                        <select id="to-currency" class="currency-select">
+                            <option value="BRL" selected>BRL - Real Brasileiro</option>
+                            <option value="USD">USD - Dólar Americano</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="GBP">GBP - Libra Esterlina</option>
+                            <option value="JPY">JPY - Iene Japonês</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Convert Button -->
+                <button id="convert-btn" class="convert-btn">Converter</button>
+
+                <!-- Result Section -->
+                <div id="result-section" class="result-section hidden">
+                    <div class="result-content">
+                        <p class="result-label">Resultado da Conversão</p>
+                        <div class="result-value">
+                            <span id="result-amount" class="amount">0.00</span>
+                            <span id="result-currency" class="currency">BRL</span>
+                        </div>
+                        <p class="result-rate" id="result-rate">Taxa: --</p>
+                        <p class="result-timestamp" id="result-timestamp">Atualizado em: --</p>
+                    </div>
+                </div>
+
+                <!-- Error Section -->
+                <div id="error-section" class="error-section hidden">
+                    <p id="error-message">Erro ao processar</p>
+                </div>
+
+                <!-- Loading Indicator -->
+                <div id="loading-indicator" class="loading-indicator hidden">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+
+            <!-- Exchange Rates Table -->
+            <div class="rates-card">
+                <h2 class="rates-title">Taxas de Câmbio Atualizadas</h2>
+                <div id="rates-container" class="rates-container">
+                    <!-- Taxas serão inseridas via JavaScript -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Dados fornecidos por ExchangeRate-API | Atualizado em tempo real</p>
+            <p class="disclaimer">⚠️ Use para referência. Não é um sistema de câmbio oficial.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
