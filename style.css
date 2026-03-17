@@ -1,0 +1,545 @@
+/* ===========================
+   GLOBAL STYLES & VARIABLES
+   =========================== */
+
+:root {
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --secondary-color: #8b5cf6;
+    --background-dark: #0f172a;
+    --background-card: #1e293b;
+    --background-input: #0f172a;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #94a3b8;
+    --border-color: #334155;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --warning-color: #f59e0b;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-medium: 0 10px 25px rgba(0, 0, 0, 0.2);
+    --shadow-dark: 0 20px 40px rgba(0, 0, 0, 0.3);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===========================
+   CONTAINER & LAYOUT
+   =========================== */
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+}
+
+/* ===========================
+   HEADER
+   =========================== */
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.logo-icon {
+    font-size: 32px;
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+/* ===========================
+   MAIN CONTENT
+   =========================== */
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ===========================
+   CONVERTER CARD
+   =========================== */
+
+.converter-card {
+    background: var(--background-card);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color);
+    animation: slideUp 0.6s ease-out;
+    position: relative;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .converter-card {
+        padding: 25px;
+    }
+}
+
+/* ===========================
+   INPUT SECTION
+   =========================== */
+
+.input-section {
+    margin-bottom: 30px;
+}
+
+.label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-amount {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    background: var(--background-input);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-primary);
+    transition: var(--transition);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.input-amount:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.input-amount::placeholder {
+    color: var(--text-tertiary);
+}
+
+/* Remove spinner from number input */
+.input-amount::-webkit-outer-spin-button,
+.input-amount::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-amount[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* ===========================
+   CURRENCY SECTION
+   =========================== */
+
+.currency-section {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+    .currency-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.currency-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.currency-select {
+    padding: 12px;
+    font-size: 0.95rem;
+    background: var(--background-input);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.currency-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.currency-select option {
+    background: var(--background-card);
+    color: var(--text-primary);
+}
+
+/* ===========================
+   SWAP BUTTON
+   =========================== */
+
+.swap-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-light);
+}
+
+.swap-btn:hover {
+    background: var(--primary-hover);
+    transform: rotate(180deg) scale(1.1);
+}
+
+.swap-btn:active {
+    transform: rotate(180deg) scale(0.95);
+}
+
+@media (max-width: 600px) {
+    .swap-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        align-self: center;
+        margin: 10px 0;
+    }
+}
+
+/* ===========================
+   CONVERT BUTTON
+   =========================== */
+
+.convert-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.convert-btn:hover {
+    box-shadow: var(--shadow-dark);
+    transform: translateY(-2px);
+}
+
+.convert-btn:active {
+    transform: translateY(0);
+}
+
+.convert-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ===========================
+   RESULT SECTION
+   =========================== */
+
+.result-section {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 25px;
+    animation: slideUp 0.4s ease-out;
+}
+
+.result-content {
+    text-align: center;
+}
+
+.result-label {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+
+.result-value {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.result-value .amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--success-color);
+    font-family: 'Courier New', monospace;
+}
+
+.result-value .currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.result-rate {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.result-timestamp {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+}
+
+.hidden {
+    display: none;
+}
+
+/* ===========================
+   ERROR SECTION
+   =========================== */
+
+.error-section {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+    border: 2px solid var(--error-color);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    animation: slideUp 0.4s ease-out;
+}
+
+#error-message {
+    color: #fca5a5;
+    font-weight: 500;
+}
+
+/* ===========================
+   LOADING INDICATOR
+   =========================== */
+
+.loading-indicator {
+    text-align: center;
+    padding: 20px;
+}
+
+.spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===========================
+   RATES CARD
+   =========================== */
+
+.rates-card {
+    background: var(--background-card);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color);
+    animation: slideUp 0.8s ease-out;
+}
+
+@media (max-width: 768px) {
+    .rates-card {
+        padding: 20px;
+    }
+}
+
+.rates-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.rates-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+@media (max-width: 600px) {
+    .rates-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.rate-item {
+    background: var(--background-input);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.rate-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
+
+.rate-pair {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.rate-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Courier New', monospace;
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.disclaimer {
+    font-size: 0.85rem;
+    color: var(--warning-color);
+    font-weight: 500;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.8rem;
+    }
+
+    .input-amount {
+        font-size: 1.2rem;
+        padding: 12px;
+    }
+
+    .convert-btn {
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    .result-value .amount {
+        font-size: 2rem;
+    }
+
+    .result-value .currency {
+        font-size: 1.2rem;
+    }
+}
